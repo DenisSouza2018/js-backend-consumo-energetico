@@ -18,10 +18,13 @@ class ApiRoutes {
             res.send({"message": "It works!"})
         });
 
+        //Teste de rotas
+        this.router.get('/listarSensores',sensorController.listarSensores)
+
         this.router.post('/login', userController.loginUsuario);
         this.router.post('/cadastrarUsuario', userController.cadastrarUsuario);
 
-        this.router.post('/listarSensoresCliente', Utils.verifyJWT, sensorController.listarSensoresCliente);
+        this.router.post('/dados', Utils.verifyJWT, sensorController.listarSensoresCliente);
         this.router.post('/alterarSensorApelido', Utils.verifyJWT, sensorController.alterarSensorApelido);
         this.router.post('/alterarSensorLimite', Utils.verifyJWT, sensorController.alterarSensorLimite);
 

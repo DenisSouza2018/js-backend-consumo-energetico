@@ -4,6 +4,28 @@ import * as mongoose from "mongoose";
 import {DadosMedicoesController} from "./dadosMedicoesController";
 
 export class SensorController {
+
+    ///----------------------
+
+    public async listarSensores(req: any, res: any) {
+        let response = {
+            isAuthenticated: true,
+            sensores: {}
+        };
+
+        if (Utils.listTest(req.user.usuario)) {
+            const idUsuario = req.user.usuario._id;
+            response.sensores = await (await SensorController.buscaSensores(idUsuario));
+        }
+
+
+        res.send(response);
+    }
+
+    ///-------------------------
+
+
+
     public async listarSensoresCliente(req: any, res: any) {
         let response = {
             isAuthenticated: true,

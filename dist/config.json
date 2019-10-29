@@ -1,0 +1,8 @@
+{
+    "databaseConf": {
+        "mongo": {
+            "host": "134.209.113.190",
+            "database": "consumoEnergetico"
+        }
+    }
+}

@@ -52,7 +52,7 @@ export class NotificationController {
         });
 
         try {
-            const mongoInsertion = await Tokens.collection.insertOne(tokens);
+            const mongoInsertion: any = await Tokens.collection.insertOne(tokens);
             return (Utils.isStrValid(mongoInsertion.insertedId.toString()));
         } catch (e) {
             let tokenRes: any = await Tokens.findOne({"token": token});
